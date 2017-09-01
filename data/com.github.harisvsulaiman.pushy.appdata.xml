@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright 2017 Haris Sulaiman <harisvsulaiman@gmail.com>-->
+<component type="desktop-application">
+  <id>com.github.harisvsulaiman.pushy.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <name>Pushy</name>
+  <summary>Pushbullet client for elementary os</summary>
+  <developer_name>Haris Sulaiman</developer_name>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/harisvsulaiman/pushy/master/data/screenshots/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <provides>
+        <binary>com.github.harisvsulaiman.pushy</binary>
+  </provides>
+  <description>
+    <p>A Pushbullet client designed for elementary os</p>
+    <ul>
+        <li>Send Pushes to devices as note</li>
+        <li>Send Pushes to devices as link</li>
+        <li>Send files to devices</li>
+        <li>Quit with the handy shortcut Ctrl + Q</li>
+    </ul>
+    <p>Devices include , Android,ios,macos, and browsers supporting the pushbullet extenstion.</p>
+</description>
+<url type="homepage">https://github.com/harisvsulaiman/Pushy</url>
+<url type="bugtracker">https://github.com/harisvsulaiman/Pushy/issues</url>
+<custom>
+  <value key="x-appcenter-color-primary">#e9f4fc</value>
+  <value key="x-appcenter-color-primary-text">#000000</value>
+</custom>
+</component>

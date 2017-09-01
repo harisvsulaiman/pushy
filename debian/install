@@ -1,0 +1,4 @@
+com.github.harisvsulaiman.pushy.dbus usr/bin
+node/keytar.node usr/bin
+node/bufferutil.node usr/bin
+node/validation.node usr/bin

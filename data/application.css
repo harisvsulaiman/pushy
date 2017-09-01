@@ -1,0 +1,88 @@
+
+decoration {
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px alpha (#000, 0.2), 0 8px 10px 1px alpha (#000, 0.14),
+    0 3px 14px 2px alpha (#000, 0.12), 0 5px 5px -3px alpha (#000, 0.4),
+    0 14px 28px transparent;
+}
+
+decoration:backdrop {
+  box-shadow: 0 0 0 1px alpha (#000, 0.2), 0 3px 6px alpha (#000, 0.16),
+    0 3px 6px alpha (#000, 0.23), 0 14px 28px transparent;
+}
+
+window {
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: inset 1px 0 0 0 alpha (@bg_highlight_color, 0.2),
+    inset -1px 0 0 0 alpha (@bg_highlight_color, 0.2),
+    inset 0 -1px 0 0 alpha (@bg_highlight_color, 0.3);
+}
+
+.titlebar {
+  border: none;
+  background-image: none;
+  background-color: @bg_color;
+   box-shadow: inset 1px 0 0 0 alpha (@bg_highlight_color, 0.2),
+    inset -1px 0 0 0 alpha (@bg_highlight_color, 0.2),
+    inset 0 1px 0 0 @bg_highlight_color;
+}
+
+.titlebar:backdrop {
+  border: none;
+  background-image: none;
+  background-color: @bg_color;
+  box-shadow: inset 1px 0 0 0 alpha (@bg_highlight_color, 0.2),
+    inset -1px 0 0 0 alpha (@bg_highlight_color, 0.2),
+    inset 0 1px 0 0 @bg_highlight_color;
+}
+
+.titlebar .title {
+  color: transparent;
+  font-size: 0;
+  text-shadow: none;
+}
+
+.welcome {
+  background-color: @bg_color;
+}
+
+.drop_box {
+  border: 3px dashed rgba(67, 158, 219, 0.35);
+  border-radius: 6px;
+}
+
+.select_file_button {
+  color: white;
+  background: none;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  font-weight: bold;
+  background-color: #60D360;
+}
+
+
+.upload_label{
+  color: #766E78;
+  font-size: 18px;
+}
+
+.file_detail_box {
+  border: 3px dashed #766E78;  
+  border-radius: 6px;
+}
+
+.file_detail_label {
+  color: #363636;
+  font-size: 14px;
+}
+
+.remove_file_button {
+  color: white;
+  background: none;
+  padding: 10px;
+  border-radius: 4px;
+  border: none;
+  font-weight: bold;
+  background-color: #F33E3E; 
+}
