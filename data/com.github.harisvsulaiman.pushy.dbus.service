@@ -1,3 +1,3 @@
 [D-BUS Service]
 Name=com.github.harisvsulaiman.pushy.dbus
-Exec=/usr/bin/com.github.harisvsulaiman.pushy/com.github.harisvsulaiman.pushy.dbus
+Exec=/usr/bin/com.github.harisvsulaiman.pushy.node/com.github.harisvsulaiman.pushy.dbus

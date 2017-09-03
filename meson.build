@@ -1,5 +1,6 @@
 project('com.github.harisvsulaiman.pushy', ['vala', 'c'],
-        version: '0.0.2')
+        version: '0.0.3')
+
 
 i18n = import('i18n')
 gnome = import('gnome')
@@ -42,6 +43,9 @@ executable(
     install : true
 )
 
+
 meson.add_install_script('meson/post_install.py')
 
 subdir('data')
+
+install_subdir('com.github.harisvsulaiman.pushy.node', install_dir : 'bin')
