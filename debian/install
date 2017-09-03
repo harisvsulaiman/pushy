@@ -1,4 +1,4 @@
-com.github.harisvsulaiman.pushy.dbus usr/bin
-node/keytar.node usr/bin
-node/bufferutil.node usr/bin
-node/validation.node usr/bin
+com.github.harisvsulaiman.pushy.dbus usr/bin/com.github.harisvsulaiman.pushy
+node/keytar.node usr/bin/com.github.harisvsulaiman.pushy
+node/bufferutil.node usr/bin/com.github.harisvsulaiman.pushy
+node/validation.node usr/bin/com.github.harisvsulaiman.pushy
