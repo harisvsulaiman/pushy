@@ -17,7 +17,8 @@ c_args = [
 deps = [
   dependency('granite'),
   dependency('gtk+-3.0'),
-  dependency('gee-0.8')
+  dependency('gee-0.8'),
+  dependency('libsecret-1')
 ]
 
 

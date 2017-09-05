@@ -5,13 +5,14 @@ Maintainer: Haris Sulaiman <harisvsulaiman@gmail.com>
 Build-Depends: debhelper (>= 9),
                libgranite-dev,
                libgtk-3-dev,
+               libsecret-1-dev, 
                meson,
                valac
 Standards-Version: 3.9.7
 
 Package: com.github.harisvsulaiman.pushy
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, libsecret-1-0
 Pre-Depends: dpkg (>= 1.15.6)
 Description: Pushbullet client for elementary os.
  Pushbullet client for elementary os ( built as hybrid app with nodejs and vala)
