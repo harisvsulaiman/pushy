@@ -6,7 +6,7 @@
 </p>
 <p align="center">
     <img 
-    src="https://raw.githubusercontent.com/harisvsulaiman/pushy/master/data/screenshots/screenshot.png" />
+    src="https://raw.githubusercontent.com/harisvsulaiman/pushy/master/data/screenshots/screenshot-1.png" />
 </p>
 
 ## Features

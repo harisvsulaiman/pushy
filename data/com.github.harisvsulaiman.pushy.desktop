@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
-Name=pushy
-Comment=Pushbullet for elementary os.
+Name=Pushy
+Comment=Pushbullet client
 Exec=com.github.harisvsulaiman.pushy
 Icon=com.github.harisvsulaiman.pushy
 Keywords=push;notification;send;

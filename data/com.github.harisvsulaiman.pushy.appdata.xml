@@ -5,18 +5,23 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0+</project_license>
   <name>Pushy</name>
-  <summary>Pushbullet client for elementary os</summary>
+  <summary>Pushbullet client</summary>
   <developer_name>Haris Sulaiman</developer_name>
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/harisvsulaiman/pushy/master/data/screenshots/screenshot.png</image>
+      <caption>Pushy push note/link View</caption>
+      <image>https://raw.githubusercontent.com/harisvsulaiman/pushy/master/data/screenshots/screenshot-1.png</image>
+    </screenshot>
+    <screenshot type="default">
+      <caption>Pushy send file View</caption>
+      <image>https://raw.githubusercontent.com/harisvsulaiman/pushy/master/data/screenshots/screenshot-2.png</image>
     </screenshot>
   </screenshots>
   <provides>
         <binary>com.github.harisvsulaiman.pushy</binary>
   </provides>
   <description>
-    <p>A Pushbullet client designed for elementary os</p>
+    <p>A Pushbullet client</p>
     <ul>
         <li>Send Pushes to devices as note</li>
         <li>Send Pushes to devices as link</li>
