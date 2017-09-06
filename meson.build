@@ -1,5 +1,5 @@
 project('com.github.harisvsulaiman.pushy', ['vala', 'c'],
-        version: '0.0.4')
+        version: '0.0.5')
 
 
 i18n = import('i18n')
