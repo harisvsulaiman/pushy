@@ -2,3 +2,7 @@ build
 .vscode
 node_modules
 js
+index.js
+config.js
+package.json
+yarn.lock
