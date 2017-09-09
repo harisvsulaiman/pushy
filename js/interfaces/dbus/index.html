@@ -1,0 +1,60 @@
+<html>
+
+<head>
+  <title>Pushy</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+  <style type="text/css">
+    .title {
+      color: #494949;
+      font-family: 'Roboto', sans-serif;
+      font-size: 70px;
+    }
+
+    .subtitle {
+      color: #5F5F5F;
+      font-family: 'Roboto', sans-serif;
+      font-size: 20px;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .welcome {
+      color: #3F3F3F;
+      font-size: 20px;
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+  <script>
+    fetch("http://localhost:3201/?token=" + window.location.hash.split("#access_token=")[1])
+      .then(function (res) {
+        if (res.ok) {
+          var welcome = document.getElementById("welcome");
+          welcome.innerText = "Success! You have successfully logged into pushy!"
+          welcome.style.color = "#60D360";
+        } else {
+          welcome.innerText = "Oops! An error occured! Please contact the developer"
+          welcome.style.color = "#F33E3E";
+        }
+      }).catch(function (err) {
+        welcome.innerText = "Oops! An error occured! Please contact the developer"
+        welcome.style.color = "#F33E3E";
+      });
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="title">Pushy</h1>
+    <h3 class="subtitle">A PushBullet client for elementary os</h3>
+    <h2 id="welcome" class="welcome">Please wait...</h2>
+  </div>
+</body>
+
+</html>

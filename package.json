@@ -1,0 +1,24 @@
+{
+  "name": "pushy",
+  "version": "0.0.8",
+  "main": "index.js",
+  "license": "GPL-3.0+",
+  "bin": "index.js",
+  "pkg": {
+    "scripts": "js/interfaces/*/*.js",
+    "assets": [
+      "js/interfaces/*/*.html"
+    ]
+  },
+  "scripts": {
+    "build": "pkg package.json -t node8-linux -o ./com.github.harisvsulaiman.pushy.node/com.github.harisvsulaiman.pushy.dbus"
+  },
+  "dependencies": {
+    "dbus-native": "^0.2.2",
+    "express": "^4.15.4",
+    "keytar": "^4.0.4",
+    "opn": "^5.1.0",
+    "pushbullet": "^2.0.0",
+    "raven": "^2.1.2"
+  }
+}

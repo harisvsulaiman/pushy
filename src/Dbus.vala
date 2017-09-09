@@ -21,6 +21,7 @@ namespace Pushy {
     delegate void GetDevicesCb (string error, Device[] devices);
     delegate void SendPushCb (string error);
     delegate void SendFileCb (string error);
+    delegate void GetUserDetailCb (string error, UserDetail userDetail);
 
     // Models
     struct Device {
@@ -28,25 +29,31 @@ namespace Pushy {
         public string id;
     }
 
+    struct UserDetail {
+        public string name;
+    }
+
     [DBus ( name="com.github.harisvsulaiman.pushy.dbus" ) ]
     interface DbusIface : Object{
         public signal void LoggedIn (bool isLoggedIn);
         
-        public abstract void Start() throws IOError;
-        public abstract void Stop() throws IOError;
+        public abstract void Start () throws IOError;
+        public abstract void Stop () throws IOError;
         
-        public abstract void Login_();
-        public signal void LoginCb_(string error);
+        public abstract void Login_ ();
+        public signal void LoginCb_ (string error);
         
-        public abstract void GetDevices_();
-        public signal void GetDevicesCb_(string error, Device[] devices);
+        public abstract void GetDevices_ ();
+        public signal void GetDevicesCb_ (string error, Device[] devices);
 
-        public abstract void SendPush_(string deviceId, string type, string title, string content);
-        public signal void SendPushCb_(string error);
+        public abstract void SendPush_ (string deviceId, string type, string title, string content);
+        public signal void SendPushCb_ (string error);
 
-        public abstract void SendFile_(string deviceId, string path, string message);
-        public signal void SendFileCb_(string error);
+        public abstract void SendFile_ (string deviceId, string path, string message);
+        public signal void SendFileCb_ (string error);
 
+        public abstract void GetUserDetail_ ();
+        public signal void GetUserDetailCb_ (string error, UserDetail userDetail);
     }
 
     class Dbus : Object {
@@ -122,6 +129,16 @@ namespace Pushy {
                 debug ("login signal connected");                        
                 sendFileCb (error);
             });   
+        }
+
+        public static void GetUserDetail (GetUserDetailCb getUserDetailCb) {
+            debug ("proxy function called");
+            dbusIface.GetUserDetail_ ();
+            debug ("actual function called");
+            dbusIface.GetUserDetailCb_.connect ((error, userDetail) => {
+                debug ("getuserdetail signal connected");
+                getUserDetailCb (error, userDetail);
+            });
         }
     }
 }

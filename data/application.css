@@ -53,11 +53,7 @@ window {
 
 .select_file_button {
   color: white;
-  background: none;
   padding: 10px;
-  border-radius: 4px;
-  border: none;
-  font-weight: bold;
   background-color: #60D360;
 }
 
@@ -79,10 +75,6 @@ window {
 
 .remove_file_button {
   color: white;
-  background: none;
   padding: 10px;
-  border-radius: 4px;
-  border: none;
-  font-weight: bold;
   background-color: #F33E3E; 
 }
