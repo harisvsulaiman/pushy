@@ -1,8 +1,9 @@
+// @ts-check
 const opn = require("opn");
 const path = require("path");
 const Raven = require("raven");
 const LOGIN_LINK =
-  "https://www.pushbullet.com/authorize?client_id=tqvr0F5ZpvKaEwdG7kLZ0JJpNhkxY4OQ&redirect_uri=http%3A%2F%2Flocalhost%3A3201%2Flogin&response_type=token&scope=everything";
+  `https://www.pushbullet.com/authorize?client_id=tqvr0F5ZpvKaEwdG7kLZ0JJpNhkxY4OQ&redirect_uri=http%3A%2F%2Flocalhost%3A3201%2Flogin&response_type=token&scope=everything`;
 
 const express = require("express");
 const app = express();
@@ -40,8 +41,8 @@ app.get("/", (request, response) => {
       // send error code and dbus signal
       response.sendStatus(500);
       LoggedIn(false);
-      console.log(err);
-      Raven.captureException(err);
+      // @ts-ignore
+      Raven.captureException(err); 
     });
 });
 
@@ -53,7 +54,9 @@ let iface = {
       .then(token => {
         if (token) {
           LoggedIn(true);
-          push = new pushBulletManager(token);
+          if (!push) {
+            push = new pushBulletManager(token);
+          }
         } else {
           LoggedIn(false);
         }
@@ -61,6 +64,7 @@ let iface = {
       .catch(err => {
         LoggedIn(false);
         console.error(err);
+        //@ts-ignore
         Raven.captureException(err);
       });
   },
@@ -74,11 +78,13 @@ let iface = {
     server = app.listen(PORT);
     // try to open link
     opn(LOGIN_LINK)
+      // @ts-ignore
       .then(() => {
         LoginCb_("");
       })
       .catch(err => {
         LoginCb_(err.toString());
+        // @ts-ignore
         Raven.captureException(err);
       });
   },
@@ -94,7 +100,9 @@ let iface = {
       .then(token => {
         if (token) {
           LoggedIn(true);
-          push = new pushBulletManager(token);
+          if (!push) {
+            push = new pushBulletManager(token);
+          }
         } else {
           LoggedIn(false);
         }
@@ -117,6 +125,7 @@ let iface = {
       .catch(err => {
         GetDevicesCb_(err, []);
         console.log(err);
+        // @ts-ignore
         Raven.captureException(err);
       });
   },
@@ -126,7 +135,9 @@ let iface = {
       .then(token => {
         if (token) {
           LoggedIn(true);
-          push = new pushBulletManager(token);
+          if (!push) {
+            push = new pushBulletManager(token);
+          }
         } else {
           LoggedIn(false);
         }
@@ -138,6 +149,7 @@ let iface = {
       .catch(err => {
         console.log(err);
         GetUserDetailCb_(err, []);
+        // @ts-ignore        
         Raven.captureException(err);
       });
   },
@@ -147,7 +159,9 @@ let iface = {
       .then(token => {
         if (token) {
           LoggedIn(true);
-          push = new pushBulletManager(token);
+          if (!push) {
+            push = new pushBulletManager(token);
+          }
         } else {
           LoggedIn(false);
         }
@@ -160,6 +174,7 @@ let iface = {
       .catch(err => {
         SendPushCb_(err);
         console.log(err);
+        // @ts-ignore        
         Raven.captureException(err);
       });
   },
@@ -169,7 +184,9 @@ let iface = {
       .then(token => {
         if (token) {
           LoggedIn(true);
-          push = new pushBulletManager(token);
+          if (!push) {
+            push = new pushBulletManager(token);
+          }
         } else {
           LoggedIn(false);
         }
@@ -182,6 +199,7 @@ let iface = {
       .catch(err => {
         console.log(err);
         SendFileCb_(err.toString());
+        // @ts-ignore        
         Raven.captureException(err);
       });
   },
