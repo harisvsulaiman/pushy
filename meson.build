@@ -8,6 +8,8 @@ gnome = import('gnome')
 # install nodejs
 run_command('configure.sh')
 
+run_command('node -v')
+
 # install npm packages
 run_command('npm install')
 
