@@ -41,7 +41,7 @@ class SessionManager {
       information
       */
         throw new Error(
-          `Failed to request service name "${serviceName}". Check what return code "${retCode}" means.`
+          `Failed to request service name "${interfaceName}". Check what return code "${retCode}" means.`
         );
       }
     });
