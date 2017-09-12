@@ -18,7 +18,6 @@ override_dh_auto_clean:
 	rm -rf debian/build
 
 override_dh_auto_configure:
-	./configure.sh
 	mkdir -p debian/build
 	cd debian/build && meson --prefix=/usr ../..
 

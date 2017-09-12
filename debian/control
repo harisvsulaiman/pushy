@@ -7,7 +7,6 @@ Build-Depends: debhelper (>= 9),
                libgtk-3-dev,
                libsecret-1-dev, 
                meson,
-               nodejs,
                valac
 Standards-Version: 3.9.7
 
