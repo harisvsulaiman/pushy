@@ -18,6 +18,11 @@ override_dh_auto_clean:
 	rm -rf debian/build
 
 override_dh_auto_configure:
+	./nodejs.sh
+	echo 'Installing packages'
+	npm install && npm install -g pkg
+	echo 'Building binary'
+	npm run build
 	mkdir -p debian/build
 	cd debian/build && meson --prefix=/usr ../..
 
