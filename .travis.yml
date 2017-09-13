@@ -5,7 +5,7 @@ services:
   - docker
 
 script:
-  - wget -O- https://github.com/harisvsulaiman/travis.debian.net/blob/gh-pages/script.sh | sh -
+  - wget -O- https://raw.githubusercontent.com/harisvsulaiman/travis.debian.net/gh-pages/script.sh | sh -
 
 branches:
   except:
