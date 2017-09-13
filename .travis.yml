@@ -1,6 +1,12 @@
-language: node_js
-node_js:
-  - "8"
-cache:
-  directories:
-    - "node_modules"
+sudo: required
+language: generic
+
+services:
+  - docker
+
+script:
+  - wget -O- https://github.com/harisvsulaiman/travis.debian.net/blob/gh-pages/script.sh | sh -
+
+branches:
+  except:
+    - /^debian\/\d/
