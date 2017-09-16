@@ -129,7 +129,6 @@ namespace Pushy {
                     push_status_bar.status = "Getting devices ...";
                     push_status_bar.show ();
 
-                    //  critical ("get devices");
                     if (err == "") {
                         send_box.set_devices (devices);
                     } else {
@@ -201,7 +200,6 @@ namespace Pushy {
                 var file_path_array = file_path.split ("/");
                 file_detail_label.label = file_path_array [file_path_array.length -1];
                 upload_stack.visible_child_name = "file_detail_box_view";
-                critical (" file detail");
             }
         }
 

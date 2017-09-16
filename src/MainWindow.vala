@@ -20,7 +20,7 @@ using Gtk;
 
 namespace Pushy {
 
-    const int MIN_WIDTH = 700;
+    const int MIN_WIDTH = 630;
     const int MIN_HEIGHT = 480;
 
     const string HINT_STRING = _("Add a new task...");
@@ -153,11 +153,9 @@ namespace Pushy {
             switch (mode_button.selected) {
                 case 0: 
                     stack.visible_child_name = "push_view";           
-                    //  critical ("push button clicked");
                     break;
                 case 1: 
                     stack.visible_child_name = "send_view";
-                    //  critical ("send button clicked");
                     break;
                 default:
                     break;
