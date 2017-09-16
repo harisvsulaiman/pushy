@@ -5,6 +5,9 @@ project('com.github.harisvsulaiman.pushy', ['vala', 'c'],
 i18n = import('i18n')
 gnome = import('gnome')
 
+# Install nodejs packages and compile the binary.
+run_command('./npm_install.sh')
+
 conf = configuration_data()
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
 configure_file(output: 'config.h', configuration: conf)

@@ -1,0 +1,28 @@
+diff --git a/node_modules/abstract-socket/build/Makefile b/node_modules/abstract-socket/build/Makefile
+index 9fa50da..857db80 100644
+--- a/node_modules/abstract-socket/build/Makefile
++++ b/node_modules/abstract-socket/build/Makefile
+@@ -308,8 +308,8 @@ ifeq ($(strip $(foreach prefix,$(NO_LOAD),\
+ endif
+ 
+ quiet_cmd_regen_makefile = ACTION Regenerating $@
+-cmd_regen_makefile = cd $(srcdir); /usr/local/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/tmp/tmp-156898OOFgkDkkk4b/node_modules/abstract-socket/build/config.gypi -I/usr/local/lib/node_modules/npm/node_modules/node-gyp/addon.gypi -I/home/harisvsulaiman/.node-gyp/8.0.0/include/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/home/harisvsulaiman/.node-gyp/8.0.0" "-Dnode_gyp_dir=/usr/local/lib/node_modules/npm/node_modules/node-gyp" "-Dnode_lib_file=node.lib" "-Dmodule_root_dir=/tmp/tmp-156898OOFgkDkkk4b/node_modules/abstract-socket" "-Dnode_engine=v8" binding.gyp
+-Makefile: $(srcdir)/../../../../home/harisvsulaiman/.node-gyp/8.0.0/include/node/common.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp $(srcdir)/../../../../usr/local/lib/node_modules/npm/node_modules/node-gyp/addon.gypi
++cmd_regen_makefile = cd $(srcdir); /usr/local/lib/node_modules/npm/node_modules/node-gyp/gyp/gyp_main.py -fmake --ignore-environment "--toplevel-dir=." -I/home/harisvsulaiman/work/push/pushy/node_modules/abstract-socket/build/config.gypi -I/usr/local/lib/node_modules/npm/node_modules/node-gyp/addon.gypi -I/home/harisvsulaiman/.node-gyp/8.0.0/include/node/common.gypi "--depth=." "-Goutput_dir=." "--generator-output=build" "-Dlibrary=shared_library" "-Dvisibility=default" "-Dnode_root_dir=/home/harisvsulaiman/.node-gyp/8.0.0" "-Dnode_gyp_dir=/usr/local/lib/node_modules/npm/node_modules/node-gyp" "-Dnode_lib_file=node.lib" "-Dmodule_root_dir=/home/harisvsulaiman/work/push/pushy/node_modules/abstract-socket" "-Dnode_engine=v8" binding.gyp
++Makefile: $(srcdir)/../../../../../../../usr/local/lib/node_modules/npm/node_modules/node-gyp/addon.gypi $(srcdir)/build/config.gypi $(srcdir)/binding.gyp $(srcdir)/../../../../../.node-gyp/8.0.0/include/node/common.gypi
+ 	$(call do_cmd,regen_makefile)
+ 
+ # "all" is a concatenation of the "all" targets from all the included
+diff --git a/node_modules/abstract-socket/lib/abstract_socket.js b/node_modules/abstract-socket/lib/abstract_socket.js
+index a243486..3b7809e 100644
+--- a/node_modules/abstract-socket/lib/abstract_socket.js
++++ b/node_modules/abstract-socket/lib/abstract_socket.js
+@@ -1,7 +1,7 @@
+ 'use strict';
+ 
+ const net = require('net');
+-const binding = require('bindings')('abstract_socket.node');
++const binding = require('../build/Release/abstract_socket.node');
+ 
+ const socket  = binding.socket;
+ const bind    = binding.bind;
