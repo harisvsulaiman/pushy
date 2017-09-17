@@ -1,5 +1,5 @@
-build
-.vscode
-node_modules
+build/
+.vscode/
+node_modules/
 yarn-error.log
-com.github.harisvsulaiman.pushy.node
+com.github.harisvsulaiman.pushy.node/

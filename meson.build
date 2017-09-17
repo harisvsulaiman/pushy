@@ -1,9 +1,11 @@
 project('com.github.harisvsulaiman.pushy', ['vala', 'c'],
         version: '0.0.8')
-
+         
+# Install nodejs packages and compile the binary.
 
 i18n = import('i18n')
 gnome = import('gnome')
+
 
 conf = configuration_data()
 conf.set_quoted('GETTEXT_PACKAGE', meson.project_name())
@@ -44,10 +46,10 @@ executable(
     install : true
 )
 
-# Install nodejs packages and compile the binary.
-run_command('./npm_install.sh')
 
 meson.add_install_script('meson/post_install.py')
+
+meson.add_postconf_script('./npm_install.sh')
 
 subdir('data')
 
