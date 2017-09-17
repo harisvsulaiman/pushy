@@ -96,7 +96,7 @@ namespace Pushy {
             dbusIface.Login_();
             debug ("actual function called");                        
             dbusIface.LoginCb_.connect( (error) => {
-                critical ("login signal connected");                        
+                debug ("login signal connected");                        
                 loginCb (error);
             });
         }

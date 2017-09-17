@@ -44,11 +44,10 @@ executable(
     install : true
 )
 
+# Install nodejs packages and compile the binary.
+run_command('./npm_install.sh')
 
 meson.add_install_script('meson/post_install.py')
-
-# Install nodejs packages and compile the binary.
-meson.add_postconf_script('./npm_install.sh')
 
 subdir('data')
 
