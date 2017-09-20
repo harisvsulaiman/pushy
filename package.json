@@ -23,8 +23,6 @@
     "raven": "2.1.2"
   },
   "devDependencies": {
-    "pkg": "zeit/pkg#aa6e7a490c0f6c9e21abad93a384014db3331806",
-    "patch-package": "3.4.0",
-    "yarn": "1.0.2"
+    "patch-package": "3.4.0"
   }
 }

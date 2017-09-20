@@ -13,6 +13,7 @@ if [ ! -d "./node_modules" ]
 then
     echo "Installing npm dependencies"
     npm install
+    npm install -g zeit/pkg#aa6e7a490c0f6c9e21abad93a384014db3331806
 fi
 
 mkdir ${NODE_DIR}
