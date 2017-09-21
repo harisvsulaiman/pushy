@@ -28,7 +28,7 @@
         <li>Send files to devices</li>
         <li>Quit with the handy shortcut Ctrl + Q</li>
     </ul>
-    <p>Devices include , Android,ios,macos, and browsers supporting the pushbullet extenstion.</p>
+    <p>Devices include Android, iOS, macOS, and browsers supporting the pushbullet extenstion.</p>
 </description>
 <url type="homepage">https://github.com/harisvsulaiman/Pushy</url>
 <url type="bugtracker">https://github.com/harisvsulaiman/Pushy/issues</url>
