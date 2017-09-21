@@ -3,3 +3,4 @@ build/
 node_modules/
 yarn-error.log
 com.github.harisvsulaiman.pushy.node/
+*.log

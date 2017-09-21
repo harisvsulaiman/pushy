@@ -1,39 +1,54 @@
 #!/bin/bash
 
-cd ../..
+# Exit on error to prevent a build
+set -e
 
-NODE_DIR="com.github.harisvsulaiman.pushy.node"
-
-# Add node to path
-export PATH=$PATH:/usr/local/bin/
-# Add npm to path 
-export PATH=$PATH:$HOME/.npm-packages/bin/
-
-if [ -d ${NODE_DIR} ]
+# Variable setup
+BUILD_DIR="$(pwd)"
+DEB_BUILD=false
+if [[ $BUILD_DIR == *debian/build ]]
 then
-    echo "Deleting Node directory"
-    rm -rf ${NODE_DIR}
+  BUILD_DIR="$(pwd)/../.."
+  DEB_BUILD=true
 fi
 
-# Install and build app.
-if [ ! -d "./node_modules" ]
-then
-    echo "Installing npm dependencies in $(pwd)"
-    npm install
-    npm install -g zeit/pkg#aa6e7a490c0f6c9e21abad93a384014db3331806
-fi
+BUILD_NAME="com.github.harisvsulaiman.pushy.node"
+NODE_DIR="$BUILD_DIR/$BUILD_NAME"
 
+# Add node related directories to path
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:$HOME/.npm-packages/bin"
+export PATH="$PATH:$HOME/.npm/.bin"
+export PATH="$PATH:$BUILD_DIR/node_modules/.bin"
+export PATH="$PATH:$BUILD_DIR/../../node_modules/.bin"
+
+# Remove any already built code
+echo "Deleting files already built"
+rm -rf ${NODE_DIR}
+rm -rf ${BUILD_DIR}/node_modules
+
+# Install node dependencies.
+echo "Installing npm dependencies in $BUILD_DIR"
+HOME=/tmp npm install
+HOME=/tmp npm install -g pkg
+
+# Setup workspace
 mkdir ${NODE_DIR}
 
-# Build app using package
+# Build app using pkg
 echo "Building binary using pkg"
-npm run build &> npm_log.txt
+HOME=/tmp npm run build
 
-echo "Copying .node files from $(pwd)"
-cp ./node_modules/keytar/build/Release/keytar.node ${NODE_DIR}
-cp ./node_modules/abstract-socket/build/Release/abstract_socket.node ${NODE_DIR}
-cp ./node_modules/websocket/build/Release/bufferutil.node ${NODE_DIR}
-cp ./node_modules/websocket/build/Release/validation.node ${NODE_DIR}
-cp ./node_modules/opn/xdg-open ${NODE_DIR}
+echo "Copying .node files from ${BUILD_DIR}"
+cp $BUILD_DIR/node_modules/keytar/build/Release/keytar.node ${NODE_DIR}
+cp $BUILD_DIR/node_modules/abstract-socket/build/Release/abstract_socket.node ${NODE_DIR}
+cp $BUILD_DIR/node_modules/websocket/build/Release/bufferutil.node ${NODE_DIR}
+cp $BUILD_DIR/node_modules/websocket/build/Release/validation.node ${NODE_DIR}
+cp $BUILD_DIR/node_modules/opn/xdg-open ${NODE_DIR}
 
-exit 0;
+if [ "$BUILD_DEB" = true ]
+then
+  echo "Copying built directory from ${BUILD_DIR}"
+  mkdir -p $BUILD_DIR/debian/build/$BUILD_NAME
+  cp $NODE_DIR/* $BUILD_DIR/debian/build/$BUILD_NAME/
+fi
