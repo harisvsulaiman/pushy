@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Error out if any command fails
+set -e
+
 cd ../..
 
 NODE_DIR="com.github.harisvsulaiman.pushy.node"
