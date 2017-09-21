@@ -1,34 +1,54 @@
 #!/bin/bash
 
-NODE_DIR="com.github.harisvsulaiman.pushy.node"
+# Exit on error to prevent a build
+set -e
+
+# Variable setup
+BUILD_DIR="$(pwd)"
+DEB_BUILD=false
+if [[ $BUILD_DIR == *debian/build ]]
+then
+  BUILD_DIR="$(pwd)/../.."
+  DEB_BUILD=true
+fi
+
+BUILD_NAME="com.github.harisvsulaiman.pushy.node"
+NODE_DIR="$BUILD_DIR/$BUILD_NAME"
 
 # Add node related directories to path
 export PATH="$PATH:/usr/local/bin"
 export PATH="$PATH:$HOME/.npm-packages/bin"
 export PATH="$PATH:$HOME/.npm/.bin"
-export PATH="$PATH:$HOME/node_modules/.bin"
+export PATH="$PATH:$BUILD_DIR/node_modules/.bin"
+export PATH="$PATH:$BUILD_DIR/../../node_modules/.bin"
 
 # Remove any already built code
-echo "Deleting Node directory"
-rm -r ${NODE_DIR}
+echo "Deleting files already built"
+rm -rf ${NODE_DIR}
+rm -rf ${BUILD_DIR}/node_modules
 
 # Install node dependencies.
-echo "Installing npm dependencies in $(pwd)"
+echo "Installing npm dependencies in $BUILD_DIR"
 npm install
-npm install -g zeit/pkg#aa6e7a490c0f6c9e21abad93a384014db3331806
+npm install -g pkg
 
 # Setup workspace
 mkdir ${NODE_DIR}
 
 # Build app using pkg
 echo "Building binary using pkg"
-npm run build &> npm_log.txt
+npm run build
 
-echo "Copying .node files from $(pwd)"
-cp ./node_modules/keytar/build/Release/keytar.node ${NODE_DIR}
-cp ./node_modules/abstract-socket/build/Release/abstract_socket.node ${NODE_DIR}
-cp ./node_modules/websocket/build/Release/bufferutil.node ${NODE_DIR}
-cp ./node_modules/websocket/build/Release/validation.node ${NODE_DIR}
-cp ./node_modules/opn/xdg-open ${NODE_DIR}
+echo "Copying .node files from ${BUILD_DIR}"
+cp $BUILD_DIR/node_modules/keytar/build/Release/keytar.node ${NODE_DIR}
+cp $BUILD_DIR/node_modules/abstract-socket/build/Release/abstract_socket.node ${NODE_DIR}
+cp $BUILD_DIR/node_modules/websocket/build/Release/bufferutil.node ${NODE_DIR}
+cp $BUILD_DIR/node_modules/websocket/build/Release/validation.node ${NODE_DIR}
+cp $BUILD_DIR/node_modules/opn/xdg-open ${NODE_DIR}
 
-exit 0;
+if [ "$BUILD_DEB" = true ]
+then
+  echo "Copying built directory from ${BUILD_DIR}"
+  mkdir -p $BUILD_DIR/debian/build/$BUILD_NAME
+  cp $NODE_DIR/* $BUILD_DIR/debian/build/$BUILD_NAME/
+fi
