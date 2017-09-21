@@ -1,31 +1,26 @@
 #!/bin/bash
 
-cd ../..
-
 NODE_DIR="com.github.harisvsulaiman.pushy.node"
 
-# Add node to path
-export PATH=$PATH:/usr/local/bin/
-# Add npm to path 
-export PATH=$PATH:$HOME/.npm-packages/bin/
+# Add node related directories to path
+export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:$HOME/.npm-packages/bin"
+export PATH="$PATH:$HOME/.npm/.bin"
+export PATH="$PATH:$HOME/node_modules/.bin"
 
-if [ -d ${NODE_DIR} ]
-then
-    echo "Deleting Node directory"
-    rm -rf ${NODE_DIR}
-fi
+# Remove any already built code
+echo "Deleting Node directory"
+rm -r ${NODE_DIR}
 
-# Install and build app.
-if [ ! -d "./node_modules" ]
-then
-    echo "Installing npm dependencies in $(pwd)"
-    npm install
-    npm install -g zeit/pkg#aa6e7a490c0f6c9e21abad93a384014db3331806
-fi
+# Install node dependencies.
+echo "Installing npm dependencies in $(pwd)"
+npm install
+npm install -g zeit/pkg#aa6e7a490c0f6c9e21abad93a384014db3331806
 
+# Setup workspace
 mkdir ${NODE_DIR}
 
-# Build app using package
+# Build app using pkg
 echo "Building binary using pkg"
 npm run build &> npm_log.txt
 
