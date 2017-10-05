@@ -34,15 +34,15 @@ rm -rf ${BUILD_DIR}/node_modules
 
 # Install node dependencies.
 echo "Installing npm dependencies in $BUILD_DIR"
-npm install
-npm install -g pkg
+HOME=/tmp npm install
+HOME=/tmp npm install -g pkg
 
 # Setup workspace
 mkdir ${NODE_DIR}
 
 # Build app using pkg
 echo "Building binary using pkg"
-npm run build
+HOME=/tmp npm run build
 
 echo "Copying .node files from ${BUILD_DIR}"
 cp $BUILD_DIR/node_modules/keytar/build/Release/keytar.node ${NODE_DIR}
