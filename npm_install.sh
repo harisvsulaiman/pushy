@@ -17,6 +17,7 @@ NODE_DIR="$BUILD_DIR/$BUILD_NAME"
 
 # Add node related directories to path
 export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/tmp/bin"
 export PATH="$PATH:$HOME/.npm-packages/bin"
 export PATH="$PATH:$HOME/.npm/.bin"
 export PATH="$PATH:$BUILD_DIR/node_modules/.bin"
@@ -37,7 +38,7 @@ mkdir ${NODE_DIR}
 
 # Build app using pkg
 echo "Building binary using pkg"
-HOME=/tmp /tmp/.bin/pkg package.json -t node8-linux -o $NODE_DIR/com.github.harisvsulaiman.pushy.dbus
+HOME=/tmp npm run build
 
 echo "Copying .node files from ${BUILD_DIR}"
 cp $BUILD_DIR/node_modules/keytar/build/Release/keytar.node ${NODE_DIR}
