@@ -22,12 +22,6 @@ export PATH="$PATH:$HOME/.npm/.bin"
 export PATH="$PATH:$BUILD_DIR/node_modules/.bin"
 export PATH="$PATH:$BUILD_DIR/../../node_modules/.bin"
 
-# Setup npm
-mkdir -p /tmp/npm
-npm config set prefix /tmp/npm
-export PATH="$PATH:/tmp/npm"
-export HOME="/tmp/npm"
-
 # Remove any already built code
 echo "Deleting files already built"
 rm -rf ${NODE_DIR}
@@ -35,15 +29,15 @@ rm -rf ${BUILD_DIR}/node_modules
 
 # Install node dependencies.
 echo "Installing npm dependencies in $BUILD_DIR"
-npm install
-npm install -g pkg
+HOME=/tmp npm install
+HOME=/tmp NPM_CONFIG_PREFIX=/tmp npm install -g pkg
 
 # Setup workspace
 mkdir ${NODE_DIR}
 
 # Build app using pkg
 echo "Building binary using pkg"
-npm run build
+HOME=/tmp /tmp/.bin/pkg package.json -t node8-linux -o $NODE_DIR/com.github.harisvsulaiman.pushy.dbus
 
 echo "Copying .node files from ${BUILD_DIR}"
 cp $BUILD_DIR/node_modules/keytar/build/Release/keytar.node ${NODE_DIR}
