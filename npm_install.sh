@@ -22,6 +22,11 @@ export PATH="$PATH:$HOME/.npm/.bin"
 export PATH="$PATH:$BUILD_DIR/node_modules/.bin"
 export PATH="$PATH:$BUILD_DIR/../../node_modules/.bin"
 
+# Setup global npm root
+mkdir -p /tmp/npm
+npm config set prefix /tmp/npm
+export PATH="$PATH:/tmp/npm"
+
 # Remove any already built code
 echo "Deleting files already built"
 rm -rf ${NODE_DIR}
