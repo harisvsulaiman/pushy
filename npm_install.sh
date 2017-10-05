@@ -22,10 +22,11 @@ export PATH="$PATH:$HOME/.npm/.bin"
 export PATH="$PATH:$BUILD_DIR/node_modules/.bin"
 export PATH="$PATH:$BUILD_DIR/../../node_modules/.bin"
 
-# Setup global npm root
+# Setup npm
 mkdir -p /tmp/npm
 npm config set prefix /tmp/npm
 export PATH="$PATH:/tmp/npm"
+export HOME="/tmp/npm"
 
 # Remove any already built code
 echo "Deleting files already built"
@@ -34,15 +35,15 @@ rm -rf ${BUILD_DIR}/node_modules
 
 # Install node dependencies.
 echo "Installing npm dependencies in $BUILD_DIR"
-HOME=/tmp npm install
-HOME=/tmp npm install -g pkg
+npm install
+npm install -g pkg
 
 # Setup workspace
 mkdir ${NODE_DIR}
 
 # Build app using pkg
 echo "Building binary using pkg"
-HOME=/tmp npm run build
+npm run build
 
 echo "Copying .node files from ${BUILD_DIR}"
 cp $BUILD_DIR/node_modules/keytar/build/Release/keytar.node ${NODE_DIR}
