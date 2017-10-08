@@ -15,32 +15,31 @@
     src="https://raw.githubusercontent.com/harisvsulaiman/pushy/master/data/screenshots/screenshot-1.png" />
 </p>
 
-## Features
+[![Build Status](https://travis-ci.org/harisvsulaiman/pushy.svg?branch=master)](https://travis-ci.org/harisvsulaiman/pushy)
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/harisvsulaiman/pushy.svg)](https://greenkeeper.io/)
 
-* Send pushes (Note/Link) to all the platforms supported by Pushbullet.
-* Send Files to devices.
+## Features
+
+* Send push messages (Note/Link) to Android, iOS, macOS, and browsers supporting the pushbullet extenstion.
+* Send Files to pushbullet clients.
 
 ## Installation
 > Nodejs is required.
 
-Vala dependencies
+Dependencies
 * libsecret-1
 * meson
 * valac
+* nodejs
 
 Nodejs dependencies
 > See package.json 
 
-#### Important!
-> Create a config.js which exports a sentry raven url for crash reporting
 
 ### Setup
 
 ```bash
-npm install -g pkg # yarn global install pkg
-npm install # or yarn install
 meson build
 mesonconf -Dprefix=/usr
 ```
@@ -48,7 +47,6 @@ mesonconf -Dprefix=/usr
 ### Build
 
 ```bash
-npm run build # yarn build prebuilt binaries are also provided
 cd build
 ninja
 ```
@@ -60,4 +58,4 @@ com.github.harisvsulaiman.pushy
 ```
 
 ### Follow me
-[![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?style=social&label=Follow)](https://twitter.com/harisvsulaiman)
+[![Twitter Follow](https://img.shields.io/twitter/follow/espadrine.svg?style=social&label=Follow&style=plastic)](https://twitter.com/harisvsulaiman)
