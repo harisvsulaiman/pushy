@@ -17,6 +17,7 @@ NODE_DIR="$BUILD_DIR/$BUILD_NAME"
 
 # Add node related directories to path
 export PATH="$PATH:/usr/local/bin"
+export PATH="$PATH:/tmp/bin"
 export PATH="$PATH:$HOME/.npm-packages/bin"
 export PATH="$PATH:$HOME/.npm/.bin"
 export PATH="$PATH:$BUILD_DIR/node_modules/.bin"
@@ -30,7 +31,7 @@ rm -rf ${BUILD_DIR}/node_modules
 # Install node dependencies.
 echo "Installing npm dependencies in $BUILD_DIR"
 HOME=/tmp npm install
-HOME=/tmp npm install -g pkg
+HOME=/tmp NPM_CONFIG_PREFIX=/tmp npm install -g pkg
 
 # Setup workspace
 mkdir ${NODE_DIR}

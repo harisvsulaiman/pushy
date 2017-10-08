@@ -17,6 +17,8 @@
 
 ## Features
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/harisvsulaiman/pushy.svg)](https://greenkeeper.io/)
+
 * Send pushes (Note/Link) to all the platforms supported by Pushbullet.
 * Send Files to devices.
 
