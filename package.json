@@ -15,15 +15,15 @@
   },
   "dependencies": {
     "abstract-socket": "2.0.0",
-    "dbus-native": "0.2.2",
-    "express": "4.15.4",
+    "dbus-native": "0.2.3",
+    "express": "4.16.1",
     "keytar": "^4.0.4",
     "opn": "^5.1.0",
-    "pushbullet": "2.0.0",
-    "raven": "2.1.2",
+    "pushbullet": "2.1.0",
+    "raven": "2.2.1",
     "websocket": "^1.0.24"
   },
   "devDependencies": {
-    "patch-package": "3.4.0"
+    "patch-package": "3.5.0"
   }
 }
