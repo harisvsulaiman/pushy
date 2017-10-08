@@ -2,7 +2,7 @@
     <img 
     src="https://raw.githubusercontent.com/harisvsulaiman/pushy/master/data/com.github.harisvsulaiman.pushy.svg?sanitize=true" height="100px" width="100px"/>
     <h1 id="title" align="center">Pushy</h1>
-    <p id="subtitle" align="center">Pushbullet client for elementary os.</p>
+    <h4 id="subtitle" align="center">Pushbullet client for elementary os.</h4>
 </p>
 </br>
 <p align="center">
