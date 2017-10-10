@@ -2,8 +2,6 @@
     <img 
     src="https://raw.githubusercontent.com/harisvsulaiman/pushy/master/data/com.github.harisvsulaiman.pushy.svg?sanitize=true" height="100px" width="100px"/>
     <h1 id="title" align="center">Pushy</h1>
-    <h4 id="subtitle" align="center">Pushbullet client for elementary os.</h4>
-</p>
 </br>
 <p align="center">
     <a href="https://appcenter.elementary.io/com.github.harisvsulaiman.pushy">
@@ -19,13 +17,14 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/harisvsulaiman/pushy.svg)](https://greenkeeper.io/)
 
+> Pushbullet client for elementary os.
+
 ## Features
 
-* Send push messages (Note/Link) to Android, iOS, macOS, and browsers supporting the pushbullet extenstion.
+* Send push messages (Note/Link) to Android, iOS, macOS, and browsers supporting the Pushbullet extension.
 * Send Files to pushbullet clients.
 
 ## Installation
-> Nodejs is required.
 
 Dependencies
 * libsecret-1
