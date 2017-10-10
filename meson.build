@@ -46,11 +46,9 @@ executable(
     install : true
 )
 
+subdir('data')
 
 meson.add_install_script('meson/post_install.py')
 
 meson.add_postconf_script('./npm_install.sh')
-
-subdir('data')
-
 install_subdir('com.github.harisvsulaiman.pushy.node', install_dir : 'bin')
