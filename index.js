@@ -6,6 +6,8 @@ const fs = require("fs");
 const RAVEN_URL = require("./config").RAVEN_URL;
 
 // @ts-ignore
-Raven.config(RAVEN_URL).install();
+Raven.config(RAVEN_URL, {
+  release: "0.1.6"
+}).install();
 
 const sessionManager = new SessionManager("dbus");
