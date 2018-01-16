@@ -1,7 +1,7 @@
 <p align="center">
     <img 
     src="https://raw.githubusercontent.com/harisvsulaiman/pushy/master/data/com.github.harisvsulaiman.pushy.svg?sanitize=true" height="100px" width="100px"/>
-    <h1 id="title" align="center">Pushy</h1>
+    <h1 id="title" align="center">Pushy (Experimental)</h1>
 </br>
 <p align="center">
     <a href="https://appcenter.elementary.io/com.github.harisvsulaiman.pushy">
