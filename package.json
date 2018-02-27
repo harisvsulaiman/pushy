@@ -20,7 +20,7 @@
     "keytar": "^4.0.4",
     "opn": "^5.1.0",
     "pushbullet": "2.1.0",
-    "raven": "2.2.1",
+    "raven": "2.4.2",
     "websocket": "^1.0.24"
   },
   "devDependencies": {
