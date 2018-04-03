@@ -19,7 +19,7 @@
     "express": "4.16.1",
     "keytar": "^4.0.4",
     "opn": "^5.1.0",
-    "pushbullet": "2.1.0",
+    "pushbullet": "2.2.0",
     "raven": "2.2.1",
     "websocket": "^1.0.24"
   },
