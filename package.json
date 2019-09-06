@@ -24,6 +24,6 @@
     "websocket": "^1.0.24"
   },
   "devDependencies": {
-    "patch-package": "3.5.0"
+    "patch-package": "6.1.3"
   }
 }
